@@ -80,6 +80,7 @@
             this.textBoxObjetivoCliente = new System.Windows.Forms.TextBox();
             this.labelEstadisticas = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.labelAvisoCliente = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -135,6 +136,7 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.labelAvisoCliente);
             this.panel6.Controls.Add(this.buttonRenovar);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.checkBoxClienteActivo);
@@ -504,12 +506,13 @@
             // buttonActivarEdicion
             // 
             this.buttonActivarEdicion.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonActivarEdicion.Location = new System.Drawing.Point(145, 10);
+            this.buttonActivarEdicion.Location = new System.Drawing.Point(105, 10);
             this.buttonActivarEdicion.Name = "buttonActivarEdicion";
-            this.buttonActivarEdicion.Size = new System.Drawing.Size(102, 30);
+            this.buttonActivarEdicion.Size = new System.Drawing.Size(142, 30);
             this.buttonActivarEdicion.TabIndex = 26;
             this.buttonActivarEdicion.Text = "Activar Edición";
             this.buttonActivarEdicion.UseVisualStyleBackColor = true;
+            this.buttonActivarEdicion.Click += new System.EventHandler(this.buttonActivarEdicion_Click);
             // 
             // buttonSalirYGuardar
             // 
@@ -633,6 +636,16 @@
             this.label15.TabIndex = 31;
             this.label15.Text = "Objetivo:";
             // 
+            // labelAvisoCliente
+            // 
+            this.labelAvisoCliente.AutoSize = true;
+            this.labelAvisoCliente.ForeColor = System.Drawing.Color.Red;
+            this.labelAvisoCliente.Location = new System.Drawing.Point(387, 318);
+            this.labelAvisoCliente.Name = "labelAvisoCliente";
+            this.labelAvisoCliente.Size = new System.Drawing.Size(245, 13);
+            this.labelAvisoCliente.TabIndex = 27;
+            this.labelAvisoCliente.Text = "Para poder editar el cliente activa el modo edición.";
+            // 
             // Formulario3DetallesClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -712,5 +725,6 @@
         private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Button buttonActivarEdicion;
         private System.Windows.Forms.Button buttonVerEntrenador;
+        private System.Windows.Forms.Label labelAvisoCliente;
     }
 }

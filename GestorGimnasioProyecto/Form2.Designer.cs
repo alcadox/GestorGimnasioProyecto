@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewTablaClientes = new System.Windows.Forms.DataGridView();
             this.labelTituloClientes = new System.Windows.Forms.Label();
             this.textBoxBuscarCliente = new System.Windows.Forms.TextBox();
@@ -42,6 +42,10 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.PaginaInicio = new System.Windows.Forms.TabPage();
             this.PaginaClientes = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.buttonPerfilClientes = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.PaginaEntrenadores = new System.Windows.Forms.TabPage();
             this.labelTituloEntrenadores = new System.Windows.Forms.Label();
             this.labelBuscarCampoEntrenadores = new System.Windows.Forms.Label();
@@ -49,42 +53,45 @@
             this.comboBoxBuscarCampoEntrenadores = new System.Windows.Forms.ComboBox();
             this.textBoxBuscarEntrenadores = new System.Windows.Forms.TextBox();
             this.labelBuscarEntrenadores = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.buttonPerfilClientes = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.buttonPerfilEntrenadores = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTablaClientes)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.PaginaClientes.SuspendLayout();
-            this.PaginaEntrenadores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEntrenadores)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.PaginaEntrenadores.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEntrenadores)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewTablaClientes
             // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            this.dataGridViewTablaClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            this.dataGridViewTablaClientes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTablaClientes.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTablaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Variable Small Semibol", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTablaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTablaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Variable Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTablaClientes.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Variable Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTablaClientes.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTablaClientes.Location = new System.Drawing.Point(17, 77);
             this.dataGridViewTablaClientes.Name = "dataGridViewTablaClientes";
             this.dataGridViewTablaClientes.ReadOnly = true;
@@ -130,17 +137,9 @@
             "id",
             "nombre",
             "apellidos",
-            "fecha_nacimiento",
-            "dni",
             "fecha_inicio",
             "fecha_fin",
-            "tipo_pago",
-            "telefono",
-            "email",
-            "peso",
-            "altura",
-            "objetivo",
-            "trainer_id"});
+            "alta"});
             this.comboBoxCamposCliente.Location = new System.Drawing.Point(523, 51);
             this.comboBoxCamposCliente.Name = "comboBoxCamposCliente";
             this.comboBoxCamposCliente.Size = new System.Drawing.Size(129, 25);
@@ -190,124 +189,6 @@
             this.PaginaClientes.TabIndex = 0;
             this.PaginaClientes.Text = "Clientes";
             // 
-            // PaginaEntrenadores
-            // 
-            this.PaginaEntrenadores.Controls.Add(this.labelTituloEntrenadores);
-            this.PaginaEntrenadores.Controls.Add(this.labelBuscarCampoEntrenadores);
-            this.PaginaEntrenadores.Controls.Add(this.dataGridViewEntrenadores);
-            this.PaginaEntrenadores.Controls.Add(this.comboBoxBuscarCampoEntrenadores);
-            this.PaginaEntrenadores.Controls.Add(this.textBoxBuscarEntrenadores);
-            this.PaginaEntrenadores.Controls.Add(this.labelBuscarEntrenadores);
-            this.PaginaEntrenadores.Location = new System.Drawing.Point(4, 22);
-            this.PaginaEntrenadores.Name = "PaginaEntrenadores";
-            this.PaginaEntrenadores.Size = new System.Drawing.Size(1810, 790);
-            this.PaginaEntrenadores.TabIndex = 2;
-            this.PaginaEntrenadores.Text = "Entrenadores";
-            this.PaginaEntrenadores.UseVisualStyleBackColor = true;
-            // 
-            // labelTituloEntrenadores
-            // 
-            this.labelTituloEntrenadores.AutoSize = true;
-            this.labelTituloEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Display", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTituloEntrenadores.Location = new System.Drawing.Point(2, 0);
-            this.labelTituloEntrenadores.Name = "labelTituloEntrenadores";
-            this.labelTituloEntrenadores.Size = new System.Drawing.Size(706, 64);
-            this.labelTituloEntrenadores.TabIndex = 7;
-            this.labelTituloEntrenadores.Text = "Tabla Entrenadores Gym 2025:";
-            // 
-            // labelBuscarCampoEntrenadores
-            // 
-            this.labelBuscarCampoEntrenadores.AutoSize = true;
-            this.labelBuscarCampoEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscarCampoEntrenadores.Location = new System.Drawing.Point(1235, 48);
-            this.labelBuscarCampoEntrenadores.Name = "labelBuscarCampoEntrenadores";
-            this.labelBuscarCampoEntrenadores.Size = new System.Drawing.Size(107, 26);
-            this.labelBuscarCampoEntrenadores.TabIndex = 11;
-            this.labelBuscarCampoEntrenadores.Text = "Buscar por:";
-            // 
-            // dataGridViewEntrenadores
-            // 
-            this.dataGridViewEntrenadores.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEntrenadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.dataGridViewEntrenadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI Variable Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEntrenadores.DefaultCellStyle = dataGridViewCellStyle20;
-            this.dataGridViewEntrenadores.Location = new System.Drawing.Point(13, 82);
-            this.dataGridViewEntrenadores.Name = "dataGridViewEntrenadores";
-            this.dataGridViewEntrenadores.ReadOnly = true;
-            this.dataGridViewEntrenadores.Size = new System.Drawing.Size(1486, 621);
-            this.dataGridViewEntrenadores.TabIndex = 6;
-            // 
-            // comboBoxBuscarCampoEntrenadores
-            // 
-            this.comboBoxBuscarCampoEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxBuscarCampoEntrenadores.FormattingEnabled = true;
-            this.comboBoxBuscarCampoEntrenadores.Items.AddRange(new object[] {
-            "id",
-            "nombre",
-            "apellidos",
-            "fecha_nacimiento",
-            "dni",
-            "fecha_inicio",
-            "fecha_fin",
-            "tipo_pago",
-            "telefono",
-            "email",
-            "especialidad",
-            "notas"});
-            this.comboBoxBuscarCampoEntrenadores.Location = new System.Drawing.Point(1343, 51);
-            this.comboBoxBuscarCampoEntrenadores.Name = "comboBoxBuscarCampoEntrenadores";
-            this.comboBoxBuscarCampoEntrenadores.Size = new System.Drawing.Size(156, 25);
-            this.comboBoxBuscarCampoEntrenadores.TabIndex = 10;
-            this.comboBoxBuscarCampoEntrenadores.TextChanged += new System.EventHandler(this.comboBoxBuscarCampoEntrenadores_TextChanged);
-            // 
-            // textBoxBuscarEntrenadores
-            // 
-            this.textBoxBuscarEntrenadores.BackColor = System.Drawing.Color.White;
-            this.textBoxBuscarEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBuscarEntrenadores.Location = new System.Drawing.Point(981, 49);
-            this.textBoxBuscarEntrenadores.Name = "textBoxBuscarEntrenadores";
-            this.textBoxBuscarEntrenadores.Size = new System.Drawing.Size(232, 25);
-            this.textBoxBuscarEntrenadores.TabIndex = 8;
-            this.textBoxBuscarEntrenadores.TextChanged += new System.EventHandler(this.textBoxBuscarEntrenadores_TextChanged);
-            // 
-            // labelBuscarEntrenadores
-            // 
-            this.labelBuscarEntrenadores.AutoSize = true;
-            this.labelBuscarEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBuscarEntrenadores.Location = new System.Drawing.Point(905, 48);
-            this.labelBuscarEntrenadores.Name = "labelBuscarEntrenadores";
-            this.labelBuscarEntrenadores.Size = new System.Drawing.Size(74, 26);
-            this.labelBuscarEntrenadores.TabIndex = 9;
-            this.labelBuscarEntrenadores.Text = "Buscar:";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridViewTablaClientes);
-            this.panel1.Controls.Add(this.labelCampoCliente);
-            this.panel1.Controls.Add(this.labelTituloClientes);
-            this.panel1.Controls.Add(this.comboBoxCamposCliente);
-            this.panel1.Controls.Add(this.textBoxBuscarCliente);
-            this.panel1.Controls.Add(this.labelBuscarCliente);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(946, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(861, 784);
-            this.panel1.TabIndex = 6;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel3);
@@ -336,10 +217,167 @@
             this.buttonPerfilClientes.Text = "Bienvenido, ----------";
             this.buttonPerfilClientes.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridViewTablaClientes);
+            this.panel1.Controls.Add(this.labelCampoCliente);
+            this.panel1.Controls.Add(this.labelTituloClientes);
+            this.panel1.Controls.Add(this.comboBoxCamposCliente);
+            this.panel1.Controls.Add(this.textBoxBuscarCliente);
+            this.panel1.Controls.Add(this.labelBuscarCliente);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(946, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(861, 784);
+            this.panel1.TabIndex = 6;
+            // 
+            // PaginaEntrenadores
+            // 
+            this.PaginaEntrenadores.Controls.Add(this.panel5);
+            this.PaginaEntrenadores.Controls.Add(this.panel4);
+            this.PaginaEntrenadores.Location = new System.Drawing.Point(4, 22);
+            this.PaginaEntrenadores.Name = "PaginaEntrenadores";
+            this.PaginaEntrenadores.Size = new System.Drawing.Size(1810, 790);
+            this.PaginaEntrenadores.TabIndex = 2;
+            this.PaginaEntrenadores.Text = "Entrenadores";
+            this.PaginaEntrenadores.UseVisualStyleBackColor = true;
+            // 
+            // labelTituloEntrenadores
+            // 
+            this.labelTituloEntrenadores.AutoSize = true;
+            this.labelTituloEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Display", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTituloEntrenadores.Location = new System.Drawing.Point(16, 0);
+            this.labelTituloEntrenadores.Name = "labelTituloEntrenadores";
+            this.labelTituloEntrenadores.Size = new System.Drawing.Size(328, 64);
+            this.labelTituloEntrenadores.TabIndex = 7;
+            this.labelTituloEntrenadores.Text = "Entrenadores";
+            // 
+            // labelBuscarCampoEntrenadores
+            // 
+            this.labelBuscarCampoEntrenadores.AutoSize = true;
+            this.labelBuscarCampoEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold);
+            this.labelBuscarCampoEntrenadores.Location = new System.Drawing.Point(515, 32);
+            this.labelBuscarCampoEntrenadores.Name = "labelBuscarCampoEntrenadores";
+            this.labelBuscarCampoEntrenadores.Size = new System.Drawing.Size(96, 20);
+            this.labelBuscarCampoEntrenadores.TabIndex = 11;
+            this.labelBuscarCampoEntrenadores.Text = "En el campo:";
+            // 
+            // dataGridViewEntrenadores
+            // 
+            this.dataGridViewEntrenadores.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEntrenadores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridViewEntrenadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Variable Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEntrenadores.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridViewEntrenadores.Location = new System.Drawing.Point(27, 86);
+            this.dataGridViewEntrenadores.Name = "dataGridViewEntrenadores";
+            this.dataGridViewEntrenadores.ReadOnly = true;
+            this.dataGridViewEntrenadores.Size = new System.Drawing.Size(644, 696);
+            this.dataGridViewEntrenadores.TabIndex = 6;
+            // 
+            // comboBoxBuscarCampoEntrenadores
+            // 
+            this.comboBoxBuscarCampoEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxBuscarCampoEntrenadores.FormattingEnabled = true;
+            this.comboBoxBuscarCampoEntrenadores.Items.AddRange(new object[] {
+            "id",
+            "nombre",
+            "apellidos",
+            "fecha_nacimiento",
+            "dni",
+            "fecha_inicio",
+            "fecha_fin",
+            "tipo_pago",
+            "telefono",
+            "email",
+            "especialidad",
+            "notas"});
+            this.comboBoxBuscarCampoEntrenadores.Location = new System.Drawing.Point(519, 55);
+            this.comboBoxBuscarCampoEntrenadores.Name = "comboBoxBuscarCampoEntrenadores";
+            this.comboBoxBuscarCampoEntrenadores.Size = new System.Drawing.Size(113, 25);
+            this.comboBoxBuscarCampoEntrenadores.TabIndex = 10;
+            this.comboBoxBuscarCampoEntrenadores.TextChanged += new System.EventHandler(this.comboBoxBuscarCampoEntrenadores_TextChanged);
+            // 
+            // textBoxBuscarEntrenadores
+            // 
+            this.textBoxBuscarEntrenadores.BackColor = System.Drawing.Color.White;
+            this.textBoxBuscarEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Small", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBuscarEntrenadores.Location = new System.Drawing.Point(379, 55);
+            this.textBoxBuscarEntrenadores.Name = "textBoxBuscarEntrenadores";
+            this.textBoxBuscarEntrenadores.Size = new System.Drawing.Size(134, 25);
+            this.textBoxBuscarEntrenadores.TabIndex = 8;
+            this.textBoxBuscarEntrenadores.TextChanged += new System.EventHandler(this.textBoxBuscarEntrenadores_TextChanged);
+            // 
+            // labelBuscarEntrenadores
+            // 
+            this.labelBuscarEntrenadores.AutoSize = true;
+            this.labelBuscarEntrenadores.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 11.25F, System.Drawing.FontStyle.Bold);
+            this.labelBuscarEntrenadores.Location = new System.Drawing.Point(375, 36);
+            this.labelBuscarEntrenadores.Name = "labelBuscarEntrenadores";
+            this.labelBuscarEntrenadores.Size = new System.Drawing.Size(59, 20);
+            this.labelBuscarEntrenadores.TabIndex = 9;
+            this.labelBuscarEntrenadores.Text = "Buscar:";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dataGridViewEntrenadores);
+            this.panel4.Controls.Add(this.labelTituloEntrenadores);
+            this.panel4.Controls.Add(this.comboBoxBuscarCampoEntrenadores);
+            this.panel4.Controls.Add(this.labelBuscarEntrenadores);
+            this.panel4.Controls.Add(this.textBoxBuscarEntrenadores);
+            this.panel4.Controls.Add(this.labelBuscarCampoEntrenadores);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(981, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(829, 790);
+            this.panel4.TabIndex = 12;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(981, 790);
+            this.panel5.TabIndex = 13;
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.buttonPerfilEntrenadores);
+            this.panel6.Location = new System.Drawing.Point(20, 18);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(943, 760);
+            this.panel6.TabIndex = 0;
+            // 
+            // buttonPerfilEntrenadores
+            // 
+            this.buttonPerfilEntrenadores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPerfilEntrenadores.Location = new System.Drawing.Point(3, 3);
+            this.buttonPerfilEntrenadores.Name = "buttonPerfilEntrenadores";
+            this.buttonPerfilEntrenadores.Size = new System.Drawing.Size(125, 23);
+            this.buttonPerfilEntrenadores.TabIndex = 1;
+            this.buttonPerfilEntrenadores.Text = "Bienvenido, ----------";
+            this.buttonPerfilEntrenadores.UseVisualStyleBackColor = true;
+            // 
             // FormularioPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1671, 820);
             this.Controls.Add(this.tabControl1);
             this.Name = "FormularioPrincipal";
@@ -348,13 +386,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTablaClientes)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.PaginaClientes.ResumeLayout(false);
-            this.PaginaEntrenadores.ResumeLayout(false);
-            this.PaginaEntrenadores.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEntrenadores)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.PaginaEntrenadores.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEntrenadores)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -381,5 +422,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonPerfilClientes;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button buttonPerfilEntrenadores;
     }
 }

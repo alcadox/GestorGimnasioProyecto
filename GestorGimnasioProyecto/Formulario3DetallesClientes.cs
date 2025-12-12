@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace GestorGimnasioProyecto
@@ -11,6 +12,7 @@ namespace GestorGimnasioProyecto
     {
         DataGridViewRow filaRef;
         string conexionString = ConfigurationManager.ConnectionStrings["conexionBaseDatos"].ConnectionString;
+        bool edicionActivada = false;
 
         public Formulario3DetallesClientes(ref DataGridViewRow fila)
         {
@@ -18,7 +20,8 @@ namespace GestorGimnasioProyecto
             filaRef = fila;
             rellenarCampos();
             Estilos.AplicarEstilosFormulario(this);
-
+            Estilos.AplicarEstilosNoEditable(this);
+            labelAvisoCliente.ForeColor = Color.Red;
         }
 
         private void rellenarCampos()
@@ -72,6 +75,24 @@ namespace GestorGimnasioProyecto
             catch (Exception ex)
             {
                 MessageBox.Show("Error conexión BD: " + ex.Message);
+            }
+        }
+
+        private void buttonActivarEdicion_Click(object sender, EventArgs e)
+        {
+            if (!edicionActivada)
+            {
+                Estilos.AplicarEstilosEditable(this);
+                labelAvisoCliente.Visible = false;
+                edicionActivada = true;
+                buttonActivarEdicion.Text = "Desactivar edición";
+            }
+            else
+            {
+                Estilos.AplicarEstilosNoEditable(this);
+                labelAvisoCliente.Visible = true;
+                edicionActivada = false;
+                buttonActivarEdicion.Text = "Activar edición";
             }
         }
     }

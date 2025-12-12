@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace GestorGimnasioProyecto
@@ -13,6 +14,7 @@ namespace GestorGimnasioProyecto
         public static Color ColorBordeSuave = Color.FromArgb(224, 224, 224);
         public static Color ColorCeldas = Color.FromArgb(250, 250, 250);
         public static Color ColorCeldasAlternas = Color.FromArgb(243, 243, 243);
+        public static Color ColorCamposNoEditables = Color.FromArgb(255, 217, 217); // rojo muy suave para campos no editables
 
         // ===== ESTILO MAIN UI =====
         public static void AplicarEstilosFormulario(Form form)
@@ -109,6 +111,109 @@ namespace GestorGimnasioProyecto
             // OTROS
             dgv.RowHeadersVisible = false;
             dgv.RowTemplate.Height = 32;
+        }
+
+        // ----- BLOQUEAR FORMULARIO (NO EDITABLE) -----
+        public static void AplicarEstilosNoEditable(Form form)
+        {
+            // Llamar a la versión recursiva empezando por el form
+            AplicarEstilosNoEditableControl(form);
+        }
+
+        private static void AplicarEstilosNoEditableControl(Control padre)
+        {
+            foreach (Control ctrl in padre.Controls)
+            {
+                // Botones: desactivar todos excepto el botón que activa la edición
+                if (ctrl is Button boton)
+                {
+                    if (!string.Equals(boton.Name, "buttonActivarEdicion", StringComparison.OrdinalIgnoreCase))
+                    {
+                        boton.Enabled = false;
+                        boton.BackColor = ColorBordeSuave;
+                        boton.ForeColor = Color.FromArgb(120, 120, 120);
+                        boton.Cursor = Cursors.Default;
+                    }
+                }
+                // TextBox y MaskedTextBox y RichTextBox: marcar como solo lectura y ajustar estilo
+                else if (ctrl is TextBox texto)
+                {
+                    texto.ReadOnly = true;
+                    texto.BackColor = ColorCamposNoEditables;
+                }
+                else if (ctrl is MaskedTextBox masked)
+                {
+                    masked.ReadOnly = true;
+                    masked.BackColor = ColorCamposNoEditables;
+                }
+                else if (ctrl is RichTextBox rtb)
+                {
+                    rtb.ReadOnly = true;
+                    rtb.BackColor = ColorCamposNoEditables;
+                }
+                // Controles que no tienen ReadOnly: desactivar
+                else if (ctrl is ComboBox || ctrl is DateTimePicker || ctrl is NumericUpDown || ctrl is CheckBox || ctrl is RadioButton)
+                {
+                    ctrl.Enabled = false;
+                }
+                // Recurse dentro de contenedores (Panel, GroupBox, TabPage, etc.)
+                if (ctrl.HasChildren)
+                    AplicarEstilosNoEditableControl(ctrl);
+            }
+        }
+
+        // ----- HABILITAR FORMULARIO (EDITABLE) -----
+        public static void AplicarEstilosEditable(Form formulario)
+        {
+            // Aplicar estilos base primero para asegurar fuentes/colores consistentes
+            AplicarEstilosFormulario(formulario);
+
+            // Luego habilitar controles recursivamente y restaurar apariencia editable
+            AplicarEstilosEditableControl(formulario);
+        }
+
+        private static void AplicarEstilosEditableControl(Control padre)
+        {
+            foreach (Control ctrl in padre.Controls)
+            {
+                if (ctrl is Button boton)
+                {
+                    // Mantener siempre habilitado el control que activa/desactiva edición
+                    if (string.Equals(boton.Name, "buttonActivarEdicion", StringComparison.OrdinalIgnoreCase))
+                    {
+                        boton.Enabled = true;
+                    }
+                    else
+                    {
+                        boton.Enabled = true;
+                        boton.BackColor = ColorPrimario;
+                        boton.ForeColor = Color.White;
+                        boton.Cursor = Cursors.Hand;
+                    }
+                }
+                else if (ctrl is TextBox texto)
+                {
+                    texto.ReadOnly = false;
+                    texto.BackColor = FondoTarjetas;
+                }
+                else if (ctrl is MaskedTextBox masked)
+                {
+                    masked.ReadOnly = false;
+                    masked.BackColor = FondoTarjetas;
+                }
+                else if (ctrl is RichTextBox rtb)
+                {
+                    rtb.ReadOnly = false;
+                    rtb.BackColor = FondoTarjetas;
+                }
+                else if (ctrl is ComboBox || ctrl is DateTimePicker || ctrl is NumericUpDown || ctrl is CheckBox || ctrl is RadioButton)
+                {
+                    ctrl.Enabled = true;
+                }
+
+                if (ctrl.HasChildren)
+                    AplicarEstilosEditableControl(ctrl);
+            }
         }
     }
 }

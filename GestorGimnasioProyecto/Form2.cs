@@ -22,7 +22,9 @@ namespace GestorGimnasioProyecto
             conectarBaseDatos(); 
             Estilos.AplicarEstilosFormulario(this);
             Estilos.AplicarEstiloDataGrid(dataGridViewTablaClientes);
+            Estilos.AplicarEstiloDataGrid(dataGridViewEntrenadores);
             buttonPerfilClientes.Text = "Bienvenido, " + nombreUsuario;
+            buttonPerfilEntrenadores.Text = "Bienvenido, " + nombreUsuario;
 
         }
 
@@ -43,10 +45,6 @@ namespace GestorGimnasioProyecto
 
                 dataGridViewTablaClientes.DataSource = dtClientes;
 
-                ocultarColcumnasInnecesarias();
-
-                ordenarColumnas();
-
                 comandoClientes.Dispose();
 
                 MySqlCommand comandoEntrenadores = new MySqlCommand(sqlEntrenadores, conexion);
@@ -60,6 +58,9 @@ namespace GestorGimnasioProyecto
                 comandoEntrenadores.Dispose();
 
                 conexion.Close();
+
+                ocultarColcumnasInnecesarias();
+                ordenarColumnas();
             }
             catch (Exception ex)
             {
@@ -79,6 +80,15 @@ namespace GestorGimnasioProyecto
             dataGridViewTablaClientes.Columns["email"].Visible = false;
             dataGridViewTablaClientes.Columns["tipo_pago"].Visible = false;
             dataGridViewTablaClientes.Columns["trainer_id"].Visible = false;
+            dataGridViewTablaClientes.Columns["created_at"].Visible = false;
+
+            dataGridViewEntrenadores.Columns["dni"].Visible = false;
+            dataGridViewEntrenadores.Columns["fecha_nacimiento"].Visible = false;
+            dataGridViewEntrenadores.Columns["tipo_pago"].Visible = false;
+            dataGridViewEntrenadores.Columns["telefono"].Visible = false;
+            dataGridViewEntrenadores.Columns["email"].Visible = false;
+            dataGridViewEntrenadores.Columns["notas"].Visible = false;
+            dataGridViewEntrenadores.Columns["created_at"].Visible = false;
         }
 
         private void ordenarColumnas()
