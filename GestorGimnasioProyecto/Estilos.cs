@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 namespace GestorGimnasioProyecto
@@ -11,9 +12,10 @@ namespace GestorGimnasioProyecto
         public static Color FondoTarjetas = Color.FromArgb(255, 255, 255); // blanco puro, estilo panel
         public static Color ColorTexto = Color.FromArgb(40, 40, 40); // gris oscuro elegante
         public static Color ColorPrimario = Color.FromArgb(52, 120, 246); // azul moderno profesional
+        public static Color ColorSeleccionCelda = Color.FromArgb(127, 167, 240); // azul claro para selección
         public static Color ColorBordeSuave = Color.FromArgb(224, 224, 224);
         public static Color ColorCeldas = Color.FromArgb(250, 250, 250);
-        public static Color ColorCeldasAlternas = Color.FromArgb(243, 243, 243);
+        public static Color ColorCeldasAlternas = Color.FromArgb(224, 224, 224); // gris muy suave para filas alternas
         public static Color ColorCamposNoEditables = Color.FromArgb(255, 217, 217); // rojo muy suave para campos no editables
 
         // ===== ESTILO MAIN UI =====
@@ -105,7 +107,7 @@ namespace GestorGimnasioProyecto
             dgv.DefaultCellStyle.ForeColor = ColorTexto;
             dgv.DefaultCellStyle.Font = new Font("Segoe UI", 10);
 
-            dgv.DefaultCellStyle.SelectionBackColor = ColorPrimario;
+            dgv.DefaultCellStyle.SelectionBackColor = ColorSeleccionCelda;
             dgv.DefaultCellStyle.SelectionForeColor = Color.White;
 
             // OTROS
@@ -214,6 +216,117 @@ namespace GestorGimnasioProyecto
                 if (ctrl.HasChildren)
                     AplicarEstilosEditableControl(ctrl);
             }
+        }
+        
+        public static void AplicarEstiloBotonesRenovar(Form form)
+        {
+            AplicarEstiloBotonesRenovarControl(form);
+        }
+
+        private static void AplicarEstiloBotonesRenovarControl(Control padre)
+        {
+            foreach (Control ctrl in padre.Controls)
+            {
+                if (ctrl is Button btn)
+                {
+                    // colores básicos
+                    btn.ForeColor = Color.Black;
+                    if (string.Equals(btn.Name, "buttonConfirmar", StringComparison.OrdinalIgnoreCase))
+                    {
+                        btn.BackColor = Color.FromArgb(40, 167, 69); // verde confirmar
+                    }
+                    else if (string.Equals(btn.Name, "buttonCancelar", StringComparison.OrdinalIgnoreCase))
+                    {
+                        btn.BackColor = Color.FromArgb(220, 53, 69); // rojo cancelar
+                    }
+
+                    // aplicar apariencia redondeada y eventos de pintura
+                    AplicarEstiloBotonRenovar(btn, 10);
+                }
+                    
+                if (ctrl.HasChildren)
+                    AplicarEstiloBotonesRenovarControl(ctrl);
+            }
+        }
+
+        // Aplica estilo específico con bordes redondeados para botones de renovar
+        private static void AplicarEstiloBotonRenovar(Button btn, int radio)
+        {
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.Cursor = Cursors.Hand;
+            btn.Font = new Font("Segoe UI Semibold", 10);
+
+            // Actualizar la región del botón cuando cambie su tamaño
+            void UpdateRegion()
+            {
+                // Evitar rectángulos vacíos
+                var rect = btn.ClientRectangle;
+                if (rect.Width <= 0 || rect.Height <= 0) return;
+
+                using (var gp = CrearRegionRedondeada(rect, radio))
+                {
+                    // Region copia la geometría internamente, así que gp puede disponerse
+                    btn.Region = new Region(gp);
+                }
+            }
+
+            // Establecer región inicial y suscribirse a Resize para mantenerla
+            UpdateRegion();
+            btn.Resize -= BotonRenovar_Resize;
+            btn.Resize += BotonRenovar_Resize;
+            void BotonRenovar_Resize(object s, EventArgs e) => UpdateRegion();
+
+            // Pintado personalizado para suavizar los bordes y dibujar el texto centrado
+            btn.Paint -= BotonRenovar_Paint;
+            btn.Paint += BotonRenovar_Paint;
+            void BotonRenovar_Paint(object s, PaintEventArgs e)
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+                var rect = btn.ClientRectangle;
+                rect.Inflate(-1, -1);
+                if (rect.Width <= 0 || rect.Height <= 0) return;
+
+                using (var gp = CrearRegionRedondeada(rect, radio))
+                using (var brush = new SolidBrush(btn.BackColor))
+                {
+                    e.Graphics.FillPath(brush, gp);
+                }
+
+                // Dibujar texto centrado
+                TextRenderer.DrawText(e.Graphics, btn.Text, btn.Font, btn.ClientRectangle, btn.ForeColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+            }
+        }
+
+        // Crea un GraphicsPath con esquinas redondeadas para un rectángulo dado
+        private static GraphicsPath CrearRegionRedondeada(Rectangle rect, int radio)
+        {
+            var path = new GraphicsPath();
+            int diameter = radio * 2;
+            // Limitar diámetro a tamaño del rectángulo
+            if (diameter > rect.Width) diameter = rect.Width;
+            if (diameter > rect.Height) diameter = rect.Height;
+
+            Rectangle arc = new Rectangle(rect.Location, new Size(diameter, diameter));
+
+            // Top-left
+            path.AddArc(arc, 180, 90);
+
+            // Top-right
+            arc.X = rect.Right - diameter;
+            path.AddArc(arc, 270, 90);
+
+            // Bottom-right
+            arc.Y = rect.Bottom - diameter;
+            path.AddArc(arc, 0, 90);
+
+            // Bottom-left
+            arc.X = rect.Left;
+            path.AddArc(arc, 90, 90);
+
+            path.CloseFigure();
+            return path;
         }
     }
 }

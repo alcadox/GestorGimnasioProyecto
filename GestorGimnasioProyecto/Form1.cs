@@ -21,7 +21,6 @@ namespace GestorGimnasioProyecto
             bool credencialesValidas = VerificarCredenciales(usuario, contrasena);
             if (credencialesValidas)
             {
-                
                 FormularioPrincipal formularioPrincipal = new FormularioPrincipal(usuario);
                 formularioPrincipal.Show();
                 this.Hide();

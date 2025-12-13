@@ -26,6 +26,19 @@ namespace GestorGimnasioProyecto
             buttonPerfilClientes.Text = "Bienvenido, " + nombreUsuario;
             buttonPerfilEntrenadores.Text = "Bienvenido, " + nombreUsuario;
 
+            // cerrar toda la aplicación cuando este formulario se cierre
+            this.FormClosed += FormularioPrincipal_FormClosed;
+        }
+
+        private void FormularioPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                Application.Exit();
+            }
+            catch
+            {
+            }
         }
 
         private void conectarBaseDatos()
@@ -40,8 +53,6 @@ namespace GestorGimnasioProyecto
                 MySqlDataReader readerClientes = comandoClientes.ExecuteReader();
 
                 dtClientes.Load(readerClientes);
-
-                dataGridViewTablaClientes.DataSource = dtClientes;
 
                 dataGridViewTablaClientes.DataSource = dtClientes;
 
@@ -68,9 +79,19 @@ namespace GestorGimnasioProyecto
             }
         }
 
+        public void RefrescarDatos()
+        {
+            try
+            {
+                conectarBaseDatos();
+            }
+            catch
+            {
+            }
+        }
+
         private void ocultarColcumnasInnecesarias()
         {
-            // Ocultamos las columnas que NO queremos mostrar
             dataGridViewTablaClientes.Columns["dni"].Visible = false;
             dataGridViewTablaClientes.Columns["fecha_nacimiento"].Visible = false;
             dataGridViewTablaClientes.Columns["objetivo"].Visible = false;
@@ -162,6 +183,14 @@ namespace GestorGimnasioProyecto
             Formulario3DetallesClientes formularioDetalles = new Formulario3DetallesClientes(ref filaSeleccionada);
             formularioDetalles.Show();
 
+        }
+
+        private void dataGridViewEntrenadores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || dataGridViewEntrenadores.Rows[e.RowIndex].IsNewRow) return;
+            DataGridViewRow filaSeleccionada = dataGridViewEntrenadores.Rows[e.RowIndex];
+            FormDetallesEntrenadores formularioDetalles = new FormDetallesEntrenadores(ref filaSeleccionada);
+            formularioDetalles.Show();
         }
     }
 }

@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxIdCliente = new System.Windows.Forms.TextBox();
             this.labelClienteTitulo = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.labelIdCliente = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.labelAvisoCliente = new System.Windows.Forms.Label();
             this.buttonRenovar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.checkBoxClienteActivo = new System.Windows.Forms.CheckBox();
             this.comboBoxTipoPago = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxFechaFinCliente = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelFechaFinCliente = new System.Windows.Forms.Label();
             this.textBoxFechaInicioCliente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxApellidosCliente = new System.Windows.Forms.TextBox();
@@ -80,7 +80,6 @@
             this.textBoxObjetivoCliente = new System.Windows.Forms.TextBox();
             this.labelEstadisticas = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.labelAvisoCliente = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,9 +91,8 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBoxIdCliente);
             this.panel1.Controls.Add(this.labelClienteTitulo);
-            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.labelIdCliente);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -103,15 +101,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(951, 592);
             this.panel1.TabIndex = 0;
-            // 
-            // textBoxIdCliente
-            // 
-            this.textBoxIdCliente.Font = new System.Drawing.Font("Segoe UI Variable Small", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIdCliente.Location = new System.Drawing.Point(632, 14);
-            this.textBoxIdCliente.Name = "textBoxIdCliente";
-            this.textBoxIdCliente.ReadOnly = true;
-            this.textBoxIdCliente.Size = new System.Drawing.Size(53, 23);
-            this.textBoxIdCliente.TabIndex = 23;
             // 
             // labelClienteTitulo
             // 
@@ -123,15 +112,15 @@
             this.labelClienteTitulo.TabIndex = 0;
             this.labelClienteTitulo.Text = "label1";
             // 
-            // label18
+            // labelIdCliente
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 10.75F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(601, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(28, 20);
-            this.label18.TabIndex = 22;
-            this.label18.Text = "ID:";
+            this.labelIdCliente.AutoSize = true;
+            this.labelIdCliente.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 10.75F, System.Drawing.FontStyle.Bold);
+            this.labelIdCliente.Location = new System.Drawing.Point(651, 30);
+            this.labelIdCliente.Name = "labelIdCliente";
+            this.labelIdCliente.Size = new System.Drawing.Size(28, 20);
+            this.labelIdCliente.TabIndex = 22;
+            this.labelIdCliente.Text = "ID:";
             // 
             // panel6
             // 
@@ -143,7 +132,7 @@
             this.panel6.Controls.Add(this.comboBoxTipoPago);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.textBoxFechaFinCliente);
-            this.panel6.Controls.Add(this.label7);
+            this.panel6.Controls.Add(this.labelFechaFinCliente);
             this.panel6.Controls.Add(this.textBoxFechaInicioCliente);
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.textBoxApellidosCliente);
@@ -159,6 +148,16 @@
             this.panel6.Size = new System.Drawing.Size(673, 342);
             this.panel6.TabIndex = 2;
             // 
+            // labelAvisoCliente
+            // 
+            this.labelAvisoCliente.AutoSize = true;
+            this.labelAvisoCliente.ForeColor = System.Drawing.Color.Red;
+            this.labelAvisoCliente.Location = new System.Drawing.Point(387, 318);
+            this.labelAvisoCliente.Name = "labelAvisoCliente";
+            this.labelAvisoCliente.Size = new System.Drawing.Size(245, 13);
+            this.labelAvisoCliente.TabIndex = 27;
+            this.labelAvisoCliente.Text = "Para poder editar el cliente activa el modo edición.";
+            // 
             // buttonRenovar
             // 
             this.buttonRenovar.Font = new System.Drawing.Font("Segoe UI Variable Display Semib", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -168,6 +167,7 @@
             this.buttonRenovar.TabIndex = 21;
             this.buttonRenovar.Text = "Renovar";
             this.buttonRenovar.UseVisualStyleBackColor = true;
+            this.buttonRenovar.Click += new System.EventHandler(this.buttonRenovar_Click);
             // 
             // label9
             // 
@@ -220,15 +220,15 @@
             this.textBoxFechaFinCliente.Size = new System.Drawing.Size(144, 23);
             this.textBoxFechaFinCliente.TabIndex = 16;
             // 
-            // label7
+            // labelFechaFinCliente
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(223, 164);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 17);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Fecha Fin:";
+            this.labelFechaFinCliente.AutoSize = true;
+            this.labelFechaFinCliente.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.labelFechaFinCliente.Location = new System.Drawing.Point(223, 164);
+            this.labelFechaFinCliente.Name = "labelFechaFinCliente";
+            this.labelFechaFinCliente.Size = new System.Drawing.Size(68, 17);
+            this.labelFechaFinCliente.TabIndex = 15;
+            this.labelFechaFinCliente.Text = "Fecha Fin:";
             // 
             // textBoxFechaInicioCliente
             // 
@@ -360,6 +360,7 @@
             this.buttonVerEntrenador.TabIndex = 22;
             this.buttonVerEntrenador.Text = "Ver Entrenador";
             this.buttonVerEntrenador.UseVisualStyleBackColor = true;
+            this.buttonVerEntrenador.Click += new System.EventHandler(this.buttonVerEntrenador_Click);
             // 
             // textBoxIdEntrenador
             // 
@@ -636,16 +637,6 @@
             this.label15.TabIndex = 31;
             this.label15.Text = "Objetivo:";
             // 
-            // labelAvisoCliente
-            // 
-            this.labelAvisoCliente.AutoSize = true;
-            this.labelAvisoCliente.ForeColor = System.Drawing.Color.Red;
-            this.labelAvisoCliente.Location = new System.Drawing.Point(387, 318);
-            this.labelAvisoCliente.Name = "labelAvisoCliente";
-            this.labelAvisoCliente.Size = new System.Drawing.Size(245, 13);
-            this.labelAvisoCliente.TabIndex = 27;
-            this.labelAvisoCliente.Text = "Para poder editar el cliente activa el modo edición.";
-            // 
             // Formulario3DetallesClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -693,7 +684,7 @@
         private System.Windows.Forms.TextBox textBoxFechaNacimientoCliente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxFechaFinCliente;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelFechaFinCliente;
         private System.Windows.Forms.TextBox textBoxFechaInicioCliente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
@@ -717,8 +708,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBoxObjetivoCliente;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBoxIdCliente;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label labelIdCliente;
         private System.Windows.Forms.Button buttonSalirYGuardar;
         private System.Windows.Forms.Button buttonSalirSinGuardar;
         private System.Windows.Forms.Button buttonRestablecer;

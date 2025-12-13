@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -22,12 +23,13 @@ namespace GestorGimnasioProyecto
             Estilos.AplicarEstilosFormulario(this);
             Estilos.AplicarEstilosNoEditable(this);
             labelAvisoCliente.ForeColor = Color.Red;
+            comprobarFechaFinCliente();
         }
 
         private void rellenarCampos()
         {
             labelClienteTitulo.Text = "Cliente " + filaRef.Cells["nombre"].Value.ToString() + " " + filaRef.Cells["apellidos"].Value.ToString();
-            textBoxIdCliente.Text = filaRef.Cells["id"].Value.ToString();
+            labelIdCliente.Text = "ID: " + filaRef.Cells["id"].Value.ToString();
 
             textBoxDNICliente.Text = filaRef.Cells["dni"].Value.ToString();
             textBoxNombreCliente.Text = filaRef.Cells["nombre"].Value.ToString();
@@ -86,6 +88,12 @@ namespace GestorGimnasioProyecto
                 labelAvisoCliente.Visible = false;
                 edicionActivada = true;
                 buttonActivarEdicion.Text = "Desactivar edición";
+
+                textBoxFechaInicioCliente.ReadOnly = true;
+                textBoxFechaFinCliente.ReadOnly = true;
+                textBoxFechaInicioCliente.BackColor = Estilos.ColorCamposNoEditables;
+                textBoxFechaFinCliente.BackColor = Estilos.ColorCamposNoEditables;
+                comboBoxTipoPago.Enabled = false;
             }
             else
             {
@@ -94,6 +102,112 @@ namespace GestorGimnasioProyecto
                 edicionActivada = false;
                 buttonActivarEdicion.Text = "Activar edición";
             }
+            comprobarFechaFinCliente();
+        }
+
+        private void buttonVerEntrenador_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxIdEntrenador.Text)) return;
+
+            int trainerId;
+            if (!int.TryParse(textBoxIdEntrenador.Text, out trainerId)) return;
+
+            DataGridViewRow filaEntrenador = consultarEntrenadorPorId(trainerId);
+            if (filaEntrenador == null)
+            {
+                MessageBox.Show("Entrenador no encontrado.");
+                return;
+            }
+
+            FormDetallesEntrenadores formularioDetalles = new FormDetallesEntrenadores(ref filaEntrenador);
+            formularioDetalles.Show();
+        }
+
+        private DataGridViewRow consultarEntrenadorPorId(int entrenadorId)
+        {
+            try
+            {
+                var dt = new DataTable();
+                string sqlEntrenador = "SELECT * FROM trainers WHERE id = @trainerId";
+
+                using (var conexion = new MySqlConnection(conexionString))
+                using (var comando = new MySqlCommand(sqlEntrenador, conexion))
+                {
+                    comando.Parameters.AddWithValue("@trainerId", entrenadorId);
+                    conexion.Open();
+
+                    using (var adapter = new MySqlDataAdapter(comando))
+                    {
+                        adapter.Fill(dt);
+                    }
+                }
+
+                if (dt.Rows.Count == 0) return null;
+
+                var tempGrid = new DataGridView();
+                foreach (DataColumn c in dt.Columns)
+                    tempGrid.Columns.Add(c.ColumnName, c.ColumnName);
+
+                int newIndex = tempGrid.Rows.Add(dt.Rows[0].ItemArray);
+                return tempGrid.Rows[newIndex];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error conexión BD: " + ex.Message);
+                return null;
+            }
+        }
+
+        private void comprobarFechaFinCliente()
+        {
+            DateTime fechaFin;
+            if (DateTime.TryParse(textBoxFechaFinCliente.Text, out fechaFin))
+            {
+                if (fechaFin < DateTime.Now)
+                {
+                    labelFechaFinCliente.Text = "Fecha Fin (VENCIDO)";
+                    labelFechaFinCliente.ForeColor = Color.Red;
+                }
+                else
+                {
+                    labelFechaFinCliente.ForeColor = Color.Black;
+                    labelFechaFinCliente.Text = "Fecha Fin:";
+                }
+            }
+        }
+
+        private void buttonRenovar_Click(object sender, EventArgs e)
+        {
+            FormularioRenovar formularioRenovar = new FormularioRenovar(
+                filaRef.Cells["nombre"].Value.ToString(),
+                filaRef.Cells["apellidos"].Value.ToString(),
+                filaRef.Cells["id"].Value.ToString()
+            );
+
+            formularioRenovar.RenovacionExitosa += (s, args) =>
+            {
+                try
+                {
+                    if (this.InvokeRequired)
+                        this.Invoke(new Action(() => this.Close()));
+                    else
+                        this.Close();
+
+                    foreach (Form f in Application.OpenForms)
+                    {
+                        if (f is FormularioPrincipal principal)
+                        {
+                            principal.RefrescarDatos();
+                            break;
+                        }
+                    }
+                }
+                catch
+                {
+                }
+            };
+
+            formularioRenovar.Show();
         }
     }
 }
